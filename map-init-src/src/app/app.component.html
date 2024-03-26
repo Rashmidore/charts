@@ -1,0 +1,64 @@
+
+<nav class="navbar navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1">DashboardOne</span>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div class="chart">
+        <app-chart1 [data]="data1"></app-chart1>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="chart">
+        <app-chart2 [data]="data2$ | async"></app-chart2>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="chart">
+        <app-chart3 [data]="data2$ | async"></app-chart3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="chart">
+        <app-chart4 [data]="iris$ | async"></app-chart4>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="chart">
+        <app-chart5 [data]="covidData$ | async"></app-chart5>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="chart">
+        <select class="chart-options" (change)="setStackedData($event)">
+          <option *ngFor="let option of stackOptions" value="{{option.value}}">{{option.label}}</option>
+        </select>
+        <app-chart7 [data]="stackedData" [config]=""></app-chart7>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="chart">
+        <select class="chart-options" (change)="setPieData($event)">
+          <option value="now" selected>now</option>
+          <option value="before">before</option>
+        </select>
+        <app-chart6 [data]="pieData" [config]="pieConfig"></app-chart6>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="chart">
+        <app-chart6 [data]="pieData" [config]="pieConfig2"></app-chart6>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="chart">
+        <app-chart8></app-chart8>
+      </div>
+    </div>
+  </div>
+</div>

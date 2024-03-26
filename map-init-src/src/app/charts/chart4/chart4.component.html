@@ -1,0 +1,21 @@
+<div class="chart-4">
+  <div class="controller">
+    <select name="x-option"
+      (change)="setOption('x', $event)"
+    >
+      <option value="" selected disabled hidden>x variable</option>
+      <option *ngFor="let item of data?.columns"
+        [value]="item">{{item}}</option>
+    </select>
+    <select name="y-option"
+      (change)="setOption('y', $event)"
+    >
+      <option value="" selected disabled hidden>y variable</option>
+      <option *ngFor="let item of data?.columns"
+      [value]="item">{{item}}</option>
+    </select>
+  </div>
+  <div class="body">
+    <svg></svg>
+  </div>
+</div>
